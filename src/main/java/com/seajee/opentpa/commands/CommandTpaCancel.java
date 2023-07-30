@@ -1,8 +1,7 @@
 package com.seajee.opentpa.commands;
 
 import com.seajee.opentpa.OpenTpa;
-import com.seajee.opentpa.globals.Defaults;
-import net.kyori.adventure.text.Component;
+import com.seajee.opentpa.Message;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,8 +13,7 @@ public class CommandTpaCancel implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage(Defaults.TextComponent()
-                    .append(Component.text("Error: You are not a player")));
+            commandSender.sendMessage(Message.error("You are not a player"));
             return true;
         }
 
@@ -23,16 +21,14 @@ public class CommandTpaCancel implements CommandExecutor {
 
         // Check if command sender has any requests active
         if (OpenTpa.requests.get(commandSenderName) == null) {
-            commandSender.sendMessage(Defaults.TextComponent()
-                    .append(Component.text("You do not have any requests active")));
+            commandSender.sendMessage(Message.info("You do not have any requests active"));
             return true;
         }
 
         // Cancel the request
         OpenTpa.requests.remove(commandSenderName);
 
-        commandSender.sendMessage(Defaults.TextComponent()
-                .append(Component.text("Request cancelled")));
+        commandSender.sendMessage(Message.confirm("Request cancelled"));
 
         return true;
     }
