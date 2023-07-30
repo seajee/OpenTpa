@@ -11,3 +11,7 @@ commands:
     description: Accepts a tpa request
     usage: /tpaccept
     permission: opentpa.tpaccept
+  tpacancel:
+    description: Cancels a tpa request
+    usage: /tpacancel
+    permission: opentpa.tpacancel
