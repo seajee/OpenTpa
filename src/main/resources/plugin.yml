@@ -1,0 +1,13 @@
+name: OpenTpa
+version: '${project.version}'
+main: com.seajee.opentpa.OpenTpa
+api-version: '1.20'
+commands:
+  tpa:
+    description: Sends a tpa request to a player
+    usage: /tpa <player>
+    permission: opentpa.tpa
+  tpaccept:
+    description: Accepts a tpa request
+    usage: /tpaccept
+    permission: opentpa.tpaccept
