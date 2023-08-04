@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractCommand implements CommandExecutor {
 
@@ -26,7 +27,7 @@ public abstract class AbstractCommand implements CommandExecutor {
     }
 
     public void register() {
-        this.instance.getCommand(this.label).setExecutor(this);
+        Objects.requireNonNull(this.instance.getCommand(this.label)).setExecutor(this);
     }
 
     public void sendUsage(Player target) {
