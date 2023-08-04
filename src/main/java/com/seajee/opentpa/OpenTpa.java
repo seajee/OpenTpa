@@ -11,11 +11,20 @@ public final class OpenTpa extends JavaPlugin {
 
     public static HashMap<String, String> requests = new HashMap<>();
 
+    private static OpenTpa instance;
+
+    public static OpenTpa getInstance() {
+        return instance;
+    }
+
     @Override
     public void onEnable() {
-        this.getCommand("tpa").setExecutor(new CommandTpa(this));
-        this.getCommand("tpaccept").setExecutor(new CommandTpAccept(this));
-        this.getCommand("tpacancel").setExecutor(new CommandTpaCancel());
+        instance = this;
+
+        // Register commands
+        new CommandTpa("tpa", "/tpa <player>");
+        new CommandTpaCancel("tpacancel", "/tpacancel");
+        new CommandTpAccept("tpaccept", "/tpaccept <request>");
     }
 
     @Override
