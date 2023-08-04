@@ -3,6 +3,9 @@ package com.seajee.opentpa.commands;
 import com.seajee.opentpa.Message;
 import com.seajee.opentpa.OpenTpa;
 import com.seajee.opentpa.utils.TimeUtils;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -58,8 +61,11 @@ public class CommandTpa extends AbstractCommand {
             }
         }).runTaskLater(this.getInstance(), TimeUtils.secondsToTicks(10));
 
-        // Send info to players about the request
-        targetPlayer.sendMessage(Message.warn(commandSenderName + " sent you a tpa request"));
+        // Send messages to players about the request
+        targetPlayer.sendMessage(Message.warn("New tpa request by " + commandSenderName)
+                .append(Component.text("\n[ACCEPT]").color(NamedTextColor.GREEN)
+                        .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + commandSenderName))));
+
         commandSender.sendMessage(Message.confirm("Request sent to " + targetPlayerName));
     }
 }
