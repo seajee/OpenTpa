@@ -18,7 +18,6 @@ public class CommandTpa extends AbstractCommand {
 
     @Override
     public void execute(CommandSender commandSender, List<String> args) {
-
         // Check if usage is correct, otherwise reply with the correct usage
         if (args.size() == 0) {
             this.sendUsage((Player) commandSender);
