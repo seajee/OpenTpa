@@ -59,7 +59,7 @@ public class CommandTpa extends AbstractCommand {
             public void run() {
                 OpenTpa.requests.remove(commandSenderName);
             }
-        }).runTaskLater(this.getInstance(), TimeUtils.secondsToTicks(10));
+        }).runTaskLater(this.getInstance(), TimeUtils.secondsToTicks(30));
 
         // Send messages to players about the request
         targetPlayer.sendMessage(Message.warn("New tpa request by " + commandSenderName)
