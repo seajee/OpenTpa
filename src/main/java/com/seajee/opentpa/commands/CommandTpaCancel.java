@@ -12,6 +12,7 @@ public class CommandTpaCancel implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
+        // Check if command sender is a player
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage(Message.error("You are not a player"));
             return true;
