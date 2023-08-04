@@ -64,7 +64,9 @@ public class CommandTpa extends AbstractCommand {
         // Send messages to players about the request
         targetPlayer.sendMessage(Message.warn("New tpa request by " + commandSenderName)
                 .append(Component.text("\n[ACCEPT]").color(NamedTextColor.GREEN)
-                        .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + commandSenderName))));
+                    .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept " + commandSenderName))
+                .append(Component.text(" [DENY]").color(NamedTextColor.RED)
+                    .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/tpadeny " + commandSenderName)))));
 
         commandSender.sendMessage(Message.confirm("Request sent to " + targetPlayerName));
     }
