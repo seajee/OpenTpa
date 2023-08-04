@@ -9,7 +9,7 @@ commands:
     permission: opentpa.tpa
   tpaccept:
     description: Accepts a tpa request
-    usage: /tpaccept
+    usage: /tpaccept <request>
     permission: opentpa.tpaccept
   tpacancel:
     description: Cancels a tpa request
